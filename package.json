@@ -1,0 +1,79 @@
+{
+  "name": "local-dash",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "description": "dsh-go 手机端原生面板：引擎实时仪表盘（运行时长、内存、界面拉取曲线、渐变磁贴）与快捷操作。",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "files": [
+    "lib/index.js",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dshGo": {
+    "v": 1,
+    "title": {
+      "zh": "花哨仪表盘",
+      "en": "Fancy Dashboard"
+    },
+    "icon": "chart",
+    "wants": [
+      "message"
+    ],
+    "contributes": {
+      "panels": [
+        {
+          "id": "dash",
+          "title": {
+            "zh": "仪表盘",
+            "en": "Dashboard"
+          },
+          "icon": "chart",
+          "placement": [
+            "session.tab",
+            "features"
+          ],
+          "presentation": "page"
+        }
+      ],
+      "composer.strip": [
+        {
+          "id": "pulse",
+          "icon": "bolt",
+          "panel": "dash"
+        }
+      ],
+      "composer.actions": [
+        {
+          "id": "recap",
+          "label": {
+            "zh": "速览",
+            "en": "Recap"
+          },
+          "icon": "sparkle"
+        }
+      ],
+      "message.actions": [
+        {
+          "id": "keep",
+          "label": {
+            "zh": "存要点",
+            "en": "Keep"
+          },
+          "icon": "note"
+        }
+      ],
+      "turn.note": [
+        {
+          "id": "beat"
+        }
+      ]
+    }
+  }
+}
